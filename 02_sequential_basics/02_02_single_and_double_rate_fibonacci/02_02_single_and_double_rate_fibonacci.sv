@@ -6,10 +6,9 @@ module fibonacci
 (
   input               clk,
   input               rst,
-  output logic [15:0] num
+  output reg [15:0] num,
+  output reg [15:0] num2
 );
-
-  logic [15:0] num2;
 
   always_ff @ (posedge clk)
     if (rst)
@@ -27,12 +26,24 @@ module fibonacci_2
 (
   input               clk,
   input               rst,
-  output logic [15:0] num,
-  output logic [15:0] num2
+  output reg [15:0] num,
+  output reg [15:0] num2
 );
+  reg [15:0] num_holder;
 
   // Task:
   // Implement a module that generates two fibonacci numbers per cycle
 
+  always @(posedge clk ) begin
+    if (rst) begin
+      num <= 16'd1;
+      num2 <= 16'd1;
+    end
+    else begin
+      num_holder = num;
+      num <= num2;
+      num2 <= num2 + num_holder;
+    end
+  end
 
 endmodule

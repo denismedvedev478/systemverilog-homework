@@ -1,5 +1,5 @@
-`include "util.svh"
-
+`include "..\..\common\util.svh"
+`include  "02_04_serial_adder_with_vld.sv"
 module testbench;
 
   logic clk;
@@ -23,8 +23,10 @@ module testbench;
     rst <= '0;
   end
 
-  logic vld, a, b, last, actual;
+  logic vld, a, b, last, actual, actual_vlad;
+  reg cur_expected = 0;
   serial_adder_with_vld sav (.sum (actual), .*);
+  serial_adder_vlad     savlad(.sum(actual_vlad) , .*);
 
   localparam n = 128;
 
@@ -39,6 +41,7 @@ module testbench;
 
     // Expected sequence of correct output values
     logic [n - 1:0] expected;
+
 
     initial
     begin
@@ -82,18 +85,17 @@ module testbench;
     localparam [n - 1:0] expected = 128'b10011110101010110010000010010110000110011000000110000011110011010000000100001111110001111110110011111111010101110011101011111001;
 
     initial
-    begin
-      `ifdef __ICARUS__
+    begin    
         // Uncomment the following line
         // to generate a VCD file and analyze it using GTKwave or Surfer
 
-        // $dumpvars;
-      `endif
+      $dumpvars;      
 
       @ (negedge rst);
 
       for (int i = 0; i < n; i ++)
-      begin
+      begin        
+        cur_expected <= expected[i];
         vld  <= seq_vld  [i];
         a    <= seq_a    [i];
         b    <= seq_b    [i];
@@ -109,7 +111,7 @@ module testbench;
                      `PD(i), `PB(vld), `PB(last), `PB(a), `PB(b));
             $display("++ TEST     => {%s, %s}",
                      `PB(expected[i]), `PB(actual));
-            $finish(1);
+            //$finish(1);
           end
         end
       end

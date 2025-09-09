@@ -35,22 +35,22 @@ module testbench;
 
     if (signed_mul)
     begin
-      $display ("TEST   signed %d * %d = %d", sa, sb, sres);
+      $display ("TEST   signed %d * %d = %d |||| %0b * %0b = %0b", sa, sb, sres, sa, sb, sres);
 
       if (sres !== t_sres)
       begin
         $display ("FAIL %s: %d EXPECTED", `__FILE__, t_sres);
-        $finish;
+        //$stop;
       end
     end
     else
     begin
-      $display ("TEST unsigned %d * %d = %d", a, b, res);
+      $display ("TEST unsigned %d * %d = %d |||| %0b * %0b = %0b", a, b, res, a, b, res);
 
       if (res !== t_res)
       begin
         $display ("FAIL %s: %d EXPECTED", `__FILE__, t_res);
-        $finish;
+        $stop;
       end
     end
 

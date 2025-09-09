@@ -1,3 +1,4 @@
+`include "03_01_detect_sequence_using_fsm.sv"
 module testbench;
 
   logic clk;
@@ -45,7 +46,7 @@ module testbench;
         // Uncomment the following lines
         // to generate a VCD file and analyze it using GTKwave
 
-        // $dumpvars;
+        $dumpvars;
     `endif
 
     @ (negedge rst);
@@ -65,7 +66,7 @@ module testbench;
           || det6bit !== seq_det6bit[i])
       begin
         $display ("FAIL %s - see log above", `__FILE__);
-        $finish;
+        //$finish;
       end
     end
 

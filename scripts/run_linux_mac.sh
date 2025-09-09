@@ -257,6 +257,7 @@ simulate_rtl()
             then
             # It is isqrt exercise
             extra_args="$extra_args
+                        -I ${d}black_boxes
                         -I $common_path
                         -I $d
                         -I ${d}testbenches

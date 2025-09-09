@@ -3,6 +3,7 @@
 // Runs all testbenches
 //----------------------------------------------------------------------------
 
+// i should run this tb wrapper instead of running "formula_tb" directly
 module tb;
 
     formula_tb # ( .homework (3), .formula (1), .impl (1) ) formula_1_impl_1_tb ();
@@ -15,7 +16,7 @@ module tb;
             // Uncomment the following line
             // to generate a VCD file and analyze it using GTKwave
 
-            // $dumpvars;
+            $dumpvars;
         `endif
 
         formula_1_impl_1_tb .run ();

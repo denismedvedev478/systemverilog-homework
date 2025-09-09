@@ -1,0 +1,63 @@
+module testbench;
+
+  localparam n = 4;
+
+  logic          [    n - 1:0] a, b;
+  logic                        signed_mul;
+  logic          [2 * n - 1:0] res;
+
+  logic   signed [    n - 1:0] sa, sb;
+  logic   signed [2 * n - 1:0] sres;
+
+  logic unsigned [2 * n - 1:0] t_res;
+  logic   signed [2 * n - 1:0] t_sres;
+
+  signed_mul_4 i_signed_mul_4
+    (.a (a), .b (b), .res (t_sres));
+
+  unsigned_mul #(n) i_unsigned_mul
+    (.a (a), .b (b), .res (t_res));
+
+  signed_or_unsigned_mul #(.n (n)) i_signed_or_unsigned_mul
+    (.a (a), .b (b), .signed_mul (signed_mul), .res (res));
+
+  task test
+    (
+      input [n - 1:0] t_a, t_b,
+      input t_signed_mul
+    );
+
+    { a, b, signed_mul } = { t_a, t_b, t_signed_mul };
+
+    # 1;
+
+    { sa, sb, sres } = { a, b, res };
+
+    if (signed_mul)
+    begin
+      $display ("TEST   signed %d * %d = %d |||| %0b * %0b = %0b", sa, sb, sres, sa, sb, sres);
+
+      if (sres !== t_sres)
+      begin
+        $display ("FAIL %s: %d EXPECTED", `__FILE__, t_sres);
+        //$stop;
+      end
+    end
+    else
+    begin
+      $display ("TEST unsigned %d * %d = %d |||| %0b * %0b = %0b", a, b, res, a, b, res);
+
+      if (res !== t_res)
+      begin
+        $display ("FAIL %s: %d EXPECTED", `__FILE__, t_res);
+        //$stop;
+      end
+    end
+
+  endtask
+
+  initial begin
+    test(-4, -6, 1);  
+  end
+
+endmodule

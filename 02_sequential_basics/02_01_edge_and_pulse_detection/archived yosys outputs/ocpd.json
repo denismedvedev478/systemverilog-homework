@@ -1,0 +1,253 @@
+{
+  "creator": "Yosys 0.33 (git sha1 2584903a060)",
+  "modules": {
+    "one_cycle_pulse_detector": {
+      "attributes": {
+        "top": "00000000000000000000000000000001",
+        "src": "one_cycle_pulse_detector.v:1.1-24.10"
+      },
+      "ports": {
+        "clk": {
+          "direction": "input",
+          "bits": [ 2 ]
+        },
+        "rst": {
+          "direction": "input",
+          "bits": [ 3 ]
+        },
+        "a": {
+          "direction": "input",
+          "bits": [ 4 ]
+        },
+        "detected": {
+          "direction": "output",
+          "bits": [ 5 ]
+        },
+        "cur_sequence": {
+          "direction": "output",
+          "bits": [ 6, 7, 8 ]
+        }
+      },
+      "cells": {
+        "$abc$118$auto$blifparse.cc:386:parse_blif$119": {
+          "hide_name": 1,
+          "type": "INV_X1",
+          "parameters": {
+          },
+          "attributes": {
+          },
+          "connections": {
+            "A": [ 3 ],
+            "ZN": [ 9 ]
+          }
+        },
+        "$abc$118$auto$blifparse.cc:386:parse_blif$120": {
+          "hide_name": 1,
+          "type": "NOR3_X1",
+          "parameters": {
+          },
+          "attributes": {
+          },
+          "connections": {
+            "A1": [ 4 ],
+            "A2": [ 10 ],
+            "A3": [ 7 ],
+            "ZN": [ 11 ]
+          }
+        },
+        "$abc$118$auto$blifparse.cc:386:parse_blif$121": {
+          "hide_name": 1,
+          "type": "INV_X1",
+          "parameters": {
+          },
+          "attributes": {
+          },
+          "connections": {
+            "A": [ 3 ],
+            "ZN": [ 12 ]
+          }
+        },
+        "$abc$118$auto$blifparse.cc:386:parse_blif$122": {
+          "hide_name": 1,
+          "type": "INV_X1",
+          "parameters": {
+          },
+          "attributes": {
+          },
+          "connections": {
+            "A": [ 3 ],
+            "ZN": [ 13 ]
+          }
+        },
+        "$abc$118$auto$blifparse.cc:386:parse_blif$123": {
+          "hide_name": 1,
+          "type": "INV_X1",
+          "parameters": {
+          },
+          "attributes": {
+          },
+          "connections": {
+            "A": [ 3 ],
+            "ZN": [ 14 ]
+          }
+        },
+        "$auto$ff.cc:266:slice$100": {
+          "hide_name": 1,
+          "type": "DFFR_X1",
+          "parameters": {
+          },
+          "attributes": {
+            "src": "one_cycle_pulse_detector.v:9.3-22.6"
+          },
+          "connections": {
+            "CK": [ 2 ],
+            "D": [ 4 ],
+            "Q": [ 6 ],
+            "QN": [ 10 ],
+            "RN": [ 9 ]
+          }
+        },
+        "$auto$ff.cc:266:slice$101": {
+          "hide_name": 1,
+          "type": "DFFR_X1",
+          "parameters": {
+          },
+          "attributes": {
+            "src": "one_cycle_pulse_detector.v:9.3-22.6"
+          },
+          "connections": {
+            "CK": [ 2 ],
+            "D": [ 6 ],
+            "Q": [ 7 ],
+            "QN": [ 15 ],
+            "RN": [ 12 ]
+          }
+        },
+        "$auto$ff.cc:266:slice$102": {
+          "hide_name": 1,
+          "type": "DFFR_X1",
+          "parameters": {
+          },
+          "attributes": {
+            "src": "one_cycle_pulse_detector.v:9.3-22.6"
+          },
+          "connections": {
+            "CK": [ 2 ],
+            "D": [ 7 ],
+            "Q": [ 8 ],
+            "QN": [ 16 ],
+            "RN": [ 13 ]
+          }
+        },
+        "$auto$ff.cc:266:slice$99": {
+          "hide_name": 1,
+          "type": "DFFR_X1",
+          "parameters": {
+          },
+          "attributes": {
+            "src": "one_cycle_pulse_detector.v:9.3-22.6"
+          },
+          "connections": {
+            "CK": [ 2 ],
+            "D": [ 11 ],
+            "Q": [ 5 ],
+            "QN": [ 17 ],
+            "RN": [ 14 ]
+          }
+        }
+      },
+      "netnames": {
+        "$0\\detected[0:0]": {
+          "hide_name": 1,
+          "bits": [ 11 ],
+          "attributes": {
+            "src": "one_cycle_pulse_detector.v:9.3-22.6"
+          }
+        },
+        "$abc$118$auto$dfflibmap.cc:381:dfflibmap$116": {
+          "hide_name": 1,
+          "bits": [ 10 ],
+          "attributes": {
+          }
+        },
+        "$abc$118$auto$rtlil.cc:2600:NotGate$106": {
+          "hide_name": 1,
+          "bits": [ 9 ],
+          "attributes": {
+          }
+        },
+        "$abc$118$auto$rtlil.cc:2600:NotGate$108": {
+          "hide_name": 1,
+          "bits": [ 12 ],
+          "attributes": {
+          }
+        },
+        "$abc$118$auto$rtlil.cc:2600:NotGate$110": {
+          "hide_name": 1,
+          "bits": [ 13 ],
+          "attributes": {
+          }
+        },
+        "$abc$118$auto$rtlil.cc:2600:NotGate$112": {
+          "hide_name": 1,
+          "bits": [ 14 ],
+          "attributes": {
+          }
+        },
+        "$auto$dfflibmap.cc:381:dfflibmap$113": {
+          "hide_name": 1,
+          "bits": [ 17 ],
+          "attributes": {
+          }
+        },
+        "$auto$dfflibmap.cc:381:dfflibmap$114": {
+          "hide_name": 1,
+          "bits": [ 16 ],
+          "attributes": {
+          }
+        },
+        "$auto$dfflibmap.cc:381:dfflibmap$115": {
+          "hide_name": 1,
+          "bits": [ 15 ],
+          "attributes": {
+          }
+        },
+        "a": {
+          "hide_name": 0,
+          "bits": [ 4 ],
+          "attributes": {
+            "src": "one_cycle_pulse_detector.v:4.11-4.12"
+          }
+        },
+        "clk": {
+          "hide_name": 0,
+          "bits": [ 2 ],
+          "attributes": {
+            "src": "one_cycle_pulse_detector.v:2.11-2.14"
+          }
+        },
+        "cur_sequence": {
+          "hide_name": 0,
+          "bits": [ 6, 7, 8 ],
+          "attributes": {
+            "src": "one_cycle_pulse_detector.v:6.22-6.34"
+          }
+        },
+        "detected": {
+          "hide_name": 0,
+          "bits": [ 5 ],
+          "attributes": {
+            "src": "one_cycle_pulse_detector.v:5.16-5.24"
+          }
+        },
+        "rst": {
+          "hide_name": 0,
+          "bits": [ 3 ],
+          "attributes": {
+            "src": "one_cycle_pulse_detector.v:3.11-3.14"
+          }
+        }
+      }
+    }
+  }
+}

@@ -427,6 +427,7 @@ module formula_tb
 
     initial
     begin
+        $dumpvars;
         repeat (100000) @ (posedge clk);
         $display ("FAIL %s: timeout!", test_id);
         $finish;

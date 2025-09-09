@@ -16,12 +16,20 @@ endmodule
 // Task
 //----------------------------------------------------------------------------
 
-module signed_add_with_overflow
-(
-  input  [3:0] a, b,
-  output [3:0] sum,
-  output       overflow
+module signed_add_with_overflow(
+    input  signed [3:0] a,
+    input  signed [3:0] b,
+    output signed [3:0] sum,
+    output              overflow
 );
+    wire signed [3:0] sum_temp;
+    assign sum_temp = a + b;
+    assign sum = sum_temp;
+
+    // overflow: if sign of a == sign of b and sign of sum != sign of a
+    assign overflow = (~(a[3] ^ b[3])) & (a[3] ^ sum[3]);
+endmodule
+
 
   // Task:
   //
@@ -37,4 +45,3 @@ module signed_add_with_overflow
   // Otherwise the 'overflow' should be set to 0.
 
 
-endmodule

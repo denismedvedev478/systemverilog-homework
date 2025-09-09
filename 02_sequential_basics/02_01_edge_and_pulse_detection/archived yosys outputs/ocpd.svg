@@ -1,0 +1,88 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:s="https://github.com/nturley/netlistsvg" width="294" height="280">
+  <style>svg {
+    stroke:#000;
+    fill:none;
+  }
+  text {
+    fill:#000;
+    stroke:none;
+    font-size:10px;
+    font-weight: bold;
+    font-family: "Courier New", monospace;
+  }
+  .nodelabel {
+    text-anchor: middle;
+  }
+  .inputPortLabel {
+    text-anchor: end;
+  }
+  .splitjoinBody {
+    fill:#000;
+  }</style>
+  <g s:type="generic" transform="translate(12,175)" s:width="30" s:height="40" id="cell_$abc$118$auto$blifparse.cc:386:parse_blif$119">
+    <text x="15" y="-4" class="nodelabel cell_$abc$118$auto$blifparse.cc:386:parse_blif$119" s:attribute="ref">INV_X1</text>
+    <rect width="30" height="0" s:generic="body" class="cell_$abc$118$auto$blifparse.cc:386:parse_blif$119"/>
+  </g>
+  <g s:type="generic" transform="translate(12,198)" s:width="30" s:height="40" id="cell_$abc$118$auto$blifparse.cc:386:parse_blif$120">
+    <text x="15" y="-4" class="nodelabel cell_$abc$118$auto$blifparse.cc:386:parse_blif$120" s:attribute="ref">NOR3_X1</text>
+    <rect width="30" height="0" s:generic="body" class="cell_$abc$118$auto$blifparse.cc:386:parse_blif$120"/>
+  </g>
+  <g s:type="generic" transform="translate(12,221)" s:width="30" s:height="40" id="cell_$abc$118$auto$blifparse.cc:386:parse_blif$121">
+    <text x="15" y="-4" class="nodelabel cell_$abc$118$auto$blifparse.cc:386:parse_blif$121" s:attribute="ref">INV_X1</text>
+    <rect width="30" height="0" s:generic="body" class="cell_$abc$118$auto$blifparse.cc:386:parse_blif$121"/>
+  </g>
+  <g s:type="generic" transform="translate(12,244)" s:width="30" s:height="40" id="cell_$abc$118$auto$blifparse.cc:386:parse_blif$122">
+    <text x="15" y="-4" class="nodelabel cell_$abc$118$auto$blifparse.cc:386:parse_blif$122" s:attribute="ref">INV_X1</text>
+    <rect width="30" height="0" s:generic="body" class="cell_$abc$118$auto$blifparse.cc:386:parse_blif$122"/>
+  </g>
+  <g s:type="generic" transform="translate(12,267)" s:width="30" s:height="40" id="cell_$abc$118$auto$blifparse.cc:386:parse_blif$123">
+    <text x="15" y="-4" class="nodelabel cell_$abc$118$auto$blifparse.cc:386:parse_blif$123" s:attribute="ref">INV_X1</text>
+    <rect width="30" height="0" s:generic="body" class="cell_$abc$118$auto$blifparse.cc:386:parse_blif$123"/>
+  </g>
+  <g s:type="generic" transform="translate(12,87)" s:width="30" s:height="40" id="cell_$auto$ff.cc:266:slice$100">
+    <text x="15" y="-4" class="nodelabel cell_$auto$ff.cc:266:slice$100" s:attribute="ref">DFFR_X1</text>
+    <rect width="30" height="0" s:generic="body" class="cell_$auto$ff.cc:266:slice$100"/>
+  </g>
+  <g s:type="generic" transform="translate(12,110)" s:width="30" s:height="40" id="cell_$auto$ff.cc:266:slice$101">
+    <text x="15" y="-4" class="nodelabel cell_$auto$ff.cc:266:slice$101" s:attribute="ref">DFFR_X1</text>
+    <rect width="30" height="0" s:generic="body" class="cell_$auto$ff.cc:266:slice$101"/>
+  </g>
+  <g s:type="generic" transform="translate(12,133)" s:width="30" s:height="40" id="cell_$auto$ff.cc:266:slice$102">
+    <text x="15" y="-4" class="nodelabel cell_$auto$ff.cc:266:slice$102" s:attribute="ref">DFFR_X1</text>
+    <rect width="30" height="0" s:generic="body" class="cell_$auto$ff.cc:266:slice$102"/>
+  </g>
+  <g s:type="generic" transform="translate(12,64)" s:width="30" s:height="40" id="cell_$auto$ff.cc:266:slice$99">
+    <text x="15" y="-4" class="nodelabel cell_$auto$ff.cc:266:slice$99" s:attribute="ref">DFFR_X1</text>
+    <rect width="30" height="0" s:generic="body" class="cell_$auto$ff.cc:266:slice$99"/>
+  </g>
+  <g s:type="inputExt" transform="translate(12,22)" s:width="30" s:height="20" id="cell_clk">
+    <text x="15" y="-4" class="nodelabel cell_clk" s:attribute="ref">clk</text>
+    <s:alias val="$_inputExt_"/>
+    <path d="M0,0 L0,20 L15,20 L30,10 L15,0 Z" class="cell_clk"/>
+    <g s:x="28" s:y="10" s:pid="Y"/>
+  </g>
+  <g s:type="inputExt" transform="translate(54,22)" s:width="30" s:height="20" id="cell_rst">
+    <text x="15" y="-4" class="nodelabel cell_rst" s:attribute="ref">rst</text>
+    <s:alias val="$_inputExt_"/>
+    <path d="M0,0 L0,20 L15,20 L30,10 L15,0 Z" class="cell_rst"/>
+    <g s:x="28" s:y="10" s:pid="Y"/>
+  </g>
+  <g s:type="inputExt" transform="translate(96,22)" s:width="30" s:height="20" id="cell_a">
+    <text x="15" y="-4" class="nodelabel cell_a" s:attribute="ref">a</text>
+    <s:alias val="$_inputExt_"/>
+    <path d="M0,0 L0,20 L15,20 L30,10 L15,0 Z" class="cell_a"/>
+    <g s:x="28" s:y="10" s:pid="Y"/>
+  </g>
+  <g s:type="outputExt" transform="translate(138,22)" s:width="30" s:height="20" id="cell_detected">
+    <text x="15" y="-4" class="nodelabel cell_detected" s:attribute="ref">detected</text>
+    <s:alias val="$_outputExt_"/>
+    <path d="M30,0 L30,20 L15,20 L0,10 L15,0 Z" class="cell_detected"/>
+    <g s:x="0" s:y="10" s:pid="A"/>
+  </g>
+  <g s:type="outputExt" transform="translate(174,133)" s:width="30" s:height="20" id="cell_cur_sequence">
+    <text x="15" y="-4" class="nodelabel cell_cur_sequence" s:attribute="ref">cur_sequence</text>
+    <s:alias val="$_outputExt_"/>
+    <path d="M30,0 L30,20 L15,20 L0,10 L15,0 Z" class="cell_cur_sequence"/>
+    <g s:x="0" s:y="10" s:pid="A"/>
+  </g>
+</svg>

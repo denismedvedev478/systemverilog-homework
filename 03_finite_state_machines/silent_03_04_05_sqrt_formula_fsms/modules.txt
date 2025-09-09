@@ -1,0 +1,12 @@
+./03_04_formula_1_impl_2_fsm.sv
+./03_05_formula_2_fsm.sv
+./formula_1_fn.svh
+./formula_1_impl_1_fsm.sv
+./formula_1_impl_1_fsm_style_2.sv
+./formula_1_impl_1_top.sv
+./formula_1_impl_2_top.sv
+./formula_2_fn.svh
+./formula_2_top.sv
+./testbenches/formula_tb.sv
+./testbenches/isqrt_fn.svh
+./testbenches/tb.sv

@@ -24,14 +24,15 @@ module arithmetic_right_shift_of_N_by_S_using_concatenation
   // Implement a module with the logic for the arithmetic right shift,
   // but without using ">>>" operation. You are allowed to use only
   // concatenations ({a, b}), bit repetitions ({ a { b }}), bit slices
-  // and constant expressions.
+  // and constant expressions.  
+  assign res = {{S{a[N-1]}}, a[N-1:0+S]};
 
 
 endmodule
 
 module arithmetic_right_shift_of_N_by_S_using_for_inside_always
 # (parameter N = 8, S = 3)
-(input  [N - 1:0] a, output logic [N - 1:0] res);
+(input  [N - 1:0] a, output reg [N - 1:0] res);
 
   // Task:
   //
@@ -39,7 +40,14 @@ module arithmetic_right_shift_of_N_by_S_using_for_inside_always
   // but without using ">>>" operation, concatenations or bit slices.
   // You are allowed to use only "always_comb" with a "for" loop
   // that iterates through the individual bits of the input.
-
+  always_comb begin
+    for (integer i = 0; i < N-S; i++) begin
+      res[i] = a[i+S];
+    end
+    for (integer i=N-S; i<N; i++) begin
+      res[i] = a[N-1];
+    end
+  end
 
 endmodule
 
@@ -50,6 +58,14 @@ module arithmetic_right_shift_of_N_by_S_using_for_inside_generate
   // Task:
   // Implement a module that arithmetically shifts input exactly
   // by `S` bits to the right using "generate" and "for"
-
+  genvar i;
+  generate
+    for (i = 0; i<N-S; i++ ) begin
+      assign res[i] = a[i+S];
+    end
+    for (i = N-S; i<N; i++) begin
+      assign res[i] = a[N-1];
+    end
+  endgenerate
 
 endmodule

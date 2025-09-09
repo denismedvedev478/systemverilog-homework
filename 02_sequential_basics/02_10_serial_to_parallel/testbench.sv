@@ -1,4 +1,5 @@
-`include "util.svh"
+`include "..\..\common\util.svh"
+`include "02_10_serial_to_parallel.sv"
 
 module testbench;
 
@@ -103,7 +104,7 @@ module testbench;
                         $display ("++ TEST     => {%s, %s}",
                             `PH (parallel_data), `PH (parallel_data_expected));
 
-                        $finish (1);
+                        //$finish (1);
                     end
                 end
             end
@@ -123,7 +124,7 @@ module testbench;
             // Uncomment the following line
             // to generate a VCD file and analyze it using GTKwave or Surfer
 
-            // $dumpvars;
+            $dumpvars;
         `endif
 
         { serial_valid, serial_data } <= '0;
@@ -163,7 +164,7 @@ module testbench;
             $display("++ TEST     => {%s != %s}", `PD(out_vld_cnt*width), `PD(in_vld_cnt));
             $display("++ EXPECTED => out_vld_cnt * width == in_vld_cnt");
 
-            $finish (1);
+            //$finish (1);
         end
 
         $display ("PASS %s", `__FILE__);

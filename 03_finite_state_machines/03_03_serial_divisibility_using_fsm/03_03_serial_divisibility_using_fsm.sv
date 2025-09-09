@@ -64,6 +64,14 @@ module serial_divisibility_by_5_using_fsm
   output div_by_5
 );
 
+  enum reg[3:0]{
+	mod_0 = 0,
+	mod_1 = 1,
+	mod_2 = 2,
+	mod_3 = 3,
+	mod_4 = 4
+  } new_state, state;
+
   // Implement a module that performs a serial test if input number is divisible by 5.
   //
   // On each clock cycle, module receives the next 1 bit of the input number.
@@ -75,5 +83,35 @@ module serial_divisibility_by_5_using_fsm
   // Hint 2: As we are interested only in the remainder, all operations are performed under the modulo 5 (% 5).
   // Check manually how the remainder changes under such modulo.
 
+  always_comb begin
+	new_state = state;
+	case(state)
+		mod_0: if (new_bit) new_state = mod_1;
+			   else new_state = mod_0;
+			   
+		mod_1: if (new_bit) new_state = mod_3;
+			   else new_state = mod_2;
+		
+		mod_2: if (new_bit) new_state = mod_0;
+			   else new_state = mod_0;
+		
+		mod_3: if (new_bit) new_state = mod_2;
+			   else new_state = mod_1;
+		
+		mod_4: if (new_bit) new_state = mod_4;
+			   else new_state = mod_3;
+	endcase
+  
+  end
+
+// Output logic
+  assign div_by_5 = state == mod_0;
+
+  // State update
+  always_ff @ (posedge clk)
+    if (rst)
+      state <= mod_0;
+    else
+      state <= new_state;
 
 endmodule

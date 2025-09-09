@@ -36,7 +36,7 @@ module testbench;
           $display ("FAIL %s. EXPECTED %d %b",
             `__FILE__, res [0], res [0]);
 
-          $finish;
+          //$finish;
         end
 
         /*

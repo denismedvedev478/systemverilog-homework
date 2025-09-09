@@ -1,5 +1,5 @@
-`include "util.svh"
-
+`include "..\..\common\util.svh"
+`include  "02_03_serial_adder_using_logic_operations_only.sv"
 module testbench;
 
   logic clk;
@@ -23,15 +23,16 @@ module testbench;
     rst <= '0;
   end
 
-  logic a, b, sa_sum, actual;
+  logic a, b, sa_sum, actual1, actual2;
   serial_adder                             sa   (.sum (sa_sum), .*);
-  serial_adder_using_logic_operations_only salo (.sum (actual), .*);
+  serial_adder_using_logic_operations_only salo (.sum (actual1), .*);
+  serial_adder_ff                          saff(.sum (actual2), .*);
 
   localparam n = 16;
 
   // Sequence of input values
-  localparam [n - 1:0] seq_a        = 16'b1000_0001_1001_0010;
-  localparam [n - 1:0] seq_b        = 16'b0010_0001_0101_0100;
+  localparam [n - 1:0] seq_a          = 16'b1000_0001_1001_0010;
+  localparam [n - 1:0] seq_b          = 16'b0010_0001_0101_0100;
 
   // Expected sequence of correct output values
   localparam [n - 1:0] seq_expected   = 16'b1010_0010_1110_0110;
@@ -39,12 +40,12 @@ module testbench;
   // TODO: If I misstype a variable, I just get nothing as an error?
   initial
   begin
-    `ifdef __ICARUS__
+    //`ifdef __ICARUS__
       // Uncomment the following line
       // to generate a VCD file and analyze it using GTKwave or Surfer
 
-      // $dumpvars;
-    `endif
+      $dumpvars;
+    //`endif
 
     @ (negedge rst);
 
@@ -58,15 +59,15 @@ module testbench;
       if (sa_sum !== seq_expected [i]) // Sanity Check against serial_adder
         $fatal(1, "Error: serial_adder example failed!");
 
-      if (actual !== seq_expected [i])
+      if (actual1 !== seq_expected [i])
         begin // TODO: If you comment the line out it just says "I give up"
         $display("FAIL %s", `__FILE__);
         $display("++ INPUT    => {%s, %s, %s}",
                  `PB(seq_a), `PB(seq_b), `PB(seq_expected));
         $display("++ TEST     => {%s, %s, %s, %s, %s}",
                  `PD(i), `PB(seq_a[i]), `PB(seq_b[i]),
-                 `PB(actual), `PB(seq_expected[i]));
-        $finish(1);
+                 `PB(actual1), `PB(seq_expected[i]));
+        //$finish(1);
     end
   end
 

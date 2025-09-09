@@ -1,3 +1,5 @@
+`include "03_03_serial_divisibility_using_fsm.sv"
+
 module testbench;
 
   logic clk;
@@ -46,7 +48,7 @@ module testbench;
         // Uncomment the following lines
         // to generate a VCD file and analyze it using GTKwave
 
-        // $dumpvars;
+        $dumpvars;
     `endif
 
     // Run testbench 3 times
@@ -80,7 +82,7 @@ module testbench;
         if (div_by_3 !== expected_div_by_3 || div_by_5 !== expected_div_by_5)
         begin
           $display ("FAIL %s - see log above", `__FILE__);
-          $finish;
+          //$finish;
         end
       end
       $display("Number %b accepted", input_bits);

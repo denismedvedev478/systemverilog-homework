@@ -1,3 +1,4 @@
+`include "04_02_signed_add_with_saturation.sv"
 module testbench;
 
   logic signed [3:0] a, b, sum;

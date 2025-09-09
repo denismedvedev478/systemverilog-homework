@@ -360,7 +360,9 @@ module formula_tb
                         $display ("FAIL %s: res mismatch. Expected %0d, actual %0d",
                             test_id, res_expected, res);
 
-                        $finish;
+                        fork
+                            #10 $finish;   // deferred finish
+                        join_none
                     end
                 end
             end

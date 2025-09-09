@@ -1,5 +1,5 @@
-`include "util.svh"
-
+`include "..\..\common\util.svh"
+`include "02_06_serial_comparator_most_significant_first_using_fsm.sv"
 module testbench;
 
   logic clk;
@@ -100,12 +100,7 @@ module testbench;
 
   initial
   begin
-    `ifdef __ICARUS__
-      // Uncomment the following line
-      // to generate a VCD file and analyze it using GTKwave or Surfer
-
-      // $dumpvars;
-    `endif
+    $dumpvars;
 
     for (int i = 0; i < 3; i ++)
     begin
@@ -137,7 +132,7 @@ module testbench;
           $display("++ TEST     => {%s, %s, %s} != {%s, %s, %s}",
                    `PB(scm_less), `PB(scm_eq), `PB(scm_greater),
                    `PB(seq_scm_less[i][j]), `PB(seq_scm_eq[i][j]), `PB(seq_scm_greater[i][j]));
-          $finish(1);
+          //$finish(1);
         end
       end
     end

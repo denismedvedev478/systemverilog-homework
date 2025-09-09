@@ -1,4 +1,4 @@
-`include "util.svh"
+`include "02_01_edge_and_pulse_detection.sv"
 
 module testbench;
 
@@ -39,13 +39,8 @@ module testbench;
 
   initial
   begin
-    `ifdef __ICARUS__
-      // Uncomment the following line
-      // to generate a VCD file and analyze it using GTKwave or Surfer
-
-      // $dumpvars;
-    `endif
-
+    $dumpfile("design.vcd");
+    $dumpvars(1, a, clk, rst, pd_detected, ocpd_detected);
     @ (negedge rst);
 
     for (int i = 0; i < n; i ++)

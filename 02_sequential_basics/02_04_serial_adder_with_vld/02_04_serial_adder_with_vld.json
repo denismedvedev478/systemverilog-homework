@@ -1,0 +1,398 @@
+{
+  "creator": "Yosys 0.33 (git sha1 2584903a060)",
+  "modules": {
+    "serial_adder_with_vld": {
+      "attributes": {
+        "src": "02_04_serial_adder_with_vld.sv:5.1-66.10"
+      },
+      "ports": {
+        "clk": {
+          "direction": "input",
+          "bits": [ 2 ]
+        },
+        "rst": {
+          "direction": "input",
+          "bits": [ 3 ]
+        },
+        "vld": {
+          "direction": "input",
+          "bits": [ 4 ]
+        },
+        "a": {
+          "direction": "input",
+          "bits": [ 5 ]
+        },
+        "b": {
+          "direction": "input",
+          "bits": [ 6 ]
+        },
+        "last": {
+          "direction": "input",
+          "bits": [ 7 ]
+        },
+        "sum": {
+          "direction": "output",
+          "bits": [ 8 ]
+        }
+      },
+      "cells": {
+        "$abc$160$auto$blifparse.cc:386:parse_blif$161": {
+          "hide_name": 1,
+          "type": "$_NAND_",
+          "parameters": {
+          },
+          "attributes": {
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 7 ],
+            "B": [ 4 ],
+            "Y": [ 9 ]
+          }
+        },
+        "$abc$160$auto$blifparse.cc:386:parse_blif$162": {
+          "hide_name": 1,
+          "type": "$_ORNOT_",
+          "parameters": {
+          },
+          "attributes": {
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 4 ],
+            "B": [ 9 ],
+            "Y": [ 10 ]
+          }
+        },
+        "$abc$160$auto$blifparse.cc:386:parse_blif$163": {
+          "hide_name": 1,
+          "type": "$_ANDNOT_",
+          "parameters": {
+          },
+          "attributes": {
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 11 ],
+            "B": [ 9 ],
+            "Y": [ 8 ]
+          }
+        },
+        "$abc$160$auto$blifparse.cc:386:parse_blif$164": {
+          "hide_name": 1,
+          "type": "$_NAND_",
+          "parameters": {
+          },
+          "attributes": {
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 12 ],
+            "B": [ 5 ],
+            "Y": [ 13 ]
+          }
+        },
+        "$abc$160$auto$blifparse.cc:386:parse_blif$165": {
+          "hide_name": 1,
+          "type": "$_XNOR_",
+          "parameters": {
+          },
+          "attributes": {
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 12 ],
+            "B": [ 5 ],
+            "Y": [ 14 ]
+          }
+        },
+        "$abc$160$auto$blifparse.cc:386:parse_blif$166": {
+          "hide_name": 1,
+          "type": "$_ANDNOT_",
+          "parameters": {
+          },
+          "attributes": {
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 6 ],
+            "B": [ 14 ],
+            "Y": [ 15 ]
+          }
+        },
+        "$abc$160$auto$blifparse.cc:386:parse_blif$167": {
+          "hide_name": 1,
+          "type": "$_ANDNOT_",
+          "parameters": {
+          },
+          "attributes": {
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 13 ],
+            "B": [ 15 ],
+            "Y": [ 16 ]
+          }
+        },
+        "$abc$160$auto$blifparse.cc:386:parse_blif$168": {
+          "hide_name": 1,
+          "type": "$_ANDNOT_",
+          "parameters": {
+          },
+          "attributes": {
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 4 ],
+            "B": [ 16 ],
+            "Y": [ 17 ]
+          }
+        },
+        "$abc$160$auto$blifparse.cc:386:parse_blif$169": {
+          "hide_name": 1,
+          "type": "$_XOR_",
+          "parameters": {
+          },
+          "attributes": {
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 14 ],
+            "B": [ 6 ],
+            "Y": [ 18 ]
+          }
+        },
+        "$abc$160$auto$blifparse.cc:386:parse_blif$170": {
+          "hide_name": 1,
+          "type": "$_ANDNOT_",
+          "parameters": {
+          },
+          "attributes": {
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 4 ],
+            "B": [ 18 ],
+            "Y": [ 19 ]
+          }
+        },
+        "$auto$ff.cc:266:slice$137": {
+          "hide_name": 1,
+          "type": "$_SDFFE_PP0P_",
+          "parameters": {
+          },
+          "attributes": {
+            "src": "02_04_serial_adder_with_vld.sv:31.3-47.6"
+          },
+          "port_directions": {
+            "C": "input",
+            "D": "input",
+            "E": "input",
+            "Q": "output",
+            "R": "input"
+          },
+          "connections": {
+            "C": [ 2 ],
+            "D": [ 17 ],
+            "E": [ 10 ],
+            "Q": [ 12 ],
+            "R": [ 3 ]
+          }
+        },
+        "$auto$ff.cc:266:slice$138": {
+          "hide_name": 1,
+          "type": "$_SDFFE_PP0P_",
+          "parameters": {
+          },
+          "attributes": {
+            "src": "02_04_serial_adder_with_vld.sv:31.3-47.6"
+          },
+          "port_directions": {
+            "C": "input",
+            "D": "input",
+            "E": "input",
+            "Q": "output",
+            "R": "input"
+          },
+          "connections": {
+            "C": [ 2 ],
+            "D": [ 19 ],
+            "E": [ 10 ],
+            "Q": [ 11 ],
+            "R": [ 3 ]
+          }
+        }
+      },
+      "netnames": {
+        "$2\\carry_reg[0:0]": {
+          "hide_name": 1,
+          "bits": [ 17 ],
+          "attributes": {
+            "src": "02_04_serial_adder_with_vld.sv:31.3-47.6"
+          }
+        },
+        "$2\\sum_reg[0:0]": {
+          "hide_name": 1,
+          "bits": [ 19 ],
+          "attributes": {
+            "src": "02_04_serial_adder_with_vld.sv:31.3-47.6"
+          }
+        },
+        "$abc$160$auto$opt_dff.cc:194:make_patterns_logic$40": {
+          "hide_name": 1,
+          "bits": [ 10 ],
+          "attributes": {
+          }
+        },
+        "$abc$160$new_n11_": {
+          "hide_name": 1,
+          "bits": [ 9 ],
+          "attributes": {
+          }
+        },
+        "$abc$160$new_n14_": {
+          "hide_name": 1,
+          "bits": [ 13 ],
+          "attributes": {
+          }
+        },
+        "$abc$160$new_n15_": {
+          "hide_name": 1,
+          "bits": [ 14 ],
+          "attributes": {
+          }
+        },
+        "$abc$160$new_n16_": {
+          "hide_name": 1,
+          "bits": [ 15 ],
+          "attributes": {
+          }
+        },
+        "$abc$160$new_n17_": {
+          "hide_name": 1,
+          "bits": [ 16 ],
+          "attributes": {
+          }
+        },
+        "$abc$160$new_n19_": {
+          "hide_name": 1,
+          "bits": [ 18 ],
+          "attributes": {
+          }
+        },
+        "a": {
+          "hide_name": 0,
+          "bits": [ 5 ],
+          "attributes": {
+            "src": "02_04_serial_adder_with_vld.sv:10.10-10.11"
+          }
+        },
+        "b": {
+          "hide_name": 0,
+          "bits": [ 6 ],
+          "attributes": {
+            "src": "02_04_serial_adder_with_vld.sv:11.10-11.11"
+          }
+        },
+        "calc": {
+          "hide_name": 0,
+          "bits": [ 4 ],
+          "attributes": {
+            "src": "02_04_serial_adder_with_vld.sv:16.8-16.12"
+          }
+        },
+        "carry_reg": {
+          "hide_name": 0,
+          "bits": [ 12 ],
+          "attributes": {
+            "init": "0",
+            "src": "02_04_serial_adder_with_vld.sv:20.7-20.16"
+          }
+        },
+        "clk": {
+          "hide_name": 0,
+          "bits": [ 2 ],
+          "attributes": {
+            "src": "02_04_serial_adder_with_vld.sv:7.10-7.13"
+          }
+        },
+        "last": {
+          "hide_name": 0,
+          "bits": [ 7 ],
+          "attributes": {
+            "src": "02_04_serial_adder_with_vld.sv:12.10-12.14"
+          }
+        },
+        "rst": {
+          "hide_name": 0,
+          "bits": [ 3 ],
+          "attributes": {
+            "src": "02_04_serial_adder_with_vld.sv:8.10-8.13"
+          }
+        },
+        "sum": {
+          "hide_name": 0,
+          "bits": [ 8 ],
+          "attributes": {
+            "src": "02_04_serial_adder_with_vld.sv:13.10-13.13"
+          }
+        },
+        "sum_reg": {
+          "hide_name": 0,
+          "bits": [ 11 ],
+          "attributes": {
+            "init": "0",
+            "src": "02_04_serial_adder_with_vld.sv:21.7-21.14"
+          }
+        },
+        "vld": {
+          "hide_name": 0,
+          "bits": [ 4 ],
+          "attributes": {
+            "src": "02_04_serial_adder_with_vld.sv:9.10-9.13"
+          }
+        }
+      }
+    }
+  }
+}

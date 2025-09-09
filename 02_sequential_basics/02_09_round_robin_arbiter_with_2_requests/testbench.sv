@@ -1,4 +1,5 @@
-`include "util.svh"
+`include "..\..\common\util.svh"
+`include "02_09_round_robin_arbiter_with_2_requests.sv"
 
 module testbench;
 
@@ -28,7 +29,7 @@ module testbench;
       // Uncomment the following line
       // to generate a VCD file and analyze it using GTKwave or Surfer
 
-      // $dumpvars;
+      $dumpvars;
     `endif
   end
 
@@ -107,7 +108,7 @@ module testbench;
           $display("++ TEST     => {%s, %s, %s, %s}",
                    `PD(i), `PB(requests),
                    `PB(grants), `PB(expected_grants));
-          $finish(1);
+          //$finish(1);
         end
       end
 

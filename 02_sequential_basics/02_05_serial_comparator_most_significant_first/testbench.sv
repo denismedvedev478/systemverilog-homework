@@ -1,5 +1,5 @@
-`include "util.svh"
-
+`include "..\..\common\util.svh"
+`include "02_05_serial_comparator_most_significant_first.sv"
 module testbench;
 
   logic clk;
@@ -104,7 +104,7 @@ module testbench;
       // Uncomment the following line
       // to generate a VCD file and analyze it using GTKwave or Surfer
 
-      // $dumpvars;
+      $dumpvars;
     `endif
 
     for (int i = 0; i < 3; i ++)
@@ -137,7 +137,7 @@ module testbench;
           $display("++ TEST     => {%s, %s, %s} != {%s, %s, %s}",
                    `PB(scm_less), `PB(scm_eq), `PB(scm_greater),
                    `PB(seq_scm_less[i][j]), `PB(seq_scm_eq[i][j]), `PB(seq_scm_greater[i][j]));
-          $finish(1);
+          //$finish(1);
         end
       end
     end

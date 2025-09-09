@@ -1,3 +1,5 @@
+`include "04_01_signed_add_with_overflow.sv"
+
 module testbench;
 
   logic signed [3:0] a, b, sum;
@@ -52,6 +54,7 @@ module testbench;
 
   initial
     begin
+      $dumpvars;
       test (  0,  0, 0);
 
       test (  1,  2, 0);

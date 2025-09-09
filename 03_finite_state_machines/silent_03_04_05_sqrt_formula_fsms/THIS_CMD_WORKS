@@ -1,0 +1,6 @@
+#iverilog -g2012 -o design -I "./testbenches/" "./testbenches/formula_tb.sv"
+
+#No, this one:
+iverilog -g2005-sv -o design -I ./testbenches -I ./../../common/isqrt/ -f modules.txt "../../common/isqrt/isqrt.sv" ./testbenches/tb.sv
+
+# Пришлось отредачить modules.txt, чтобы дважды не импортировать tb.sv

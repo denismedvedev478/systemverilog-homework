@@ -1,4 +1,4 @@
-`include "util.svh"
+`include "01_01_mux_question.sv"
 
 module testbench;
 
@@ -37,6 +37,7 @@ module testbench;
 
   initial
     begin
+      $dumpvars();
       test ('ha, 'hb, 'hc, 'hd, 0, 'ha);
       test ('ha, 'hb, 'hc, 'hd, 1, 'hb);
       test ('ha, 'hb, 'hc, 'hd, 2, 'hc);

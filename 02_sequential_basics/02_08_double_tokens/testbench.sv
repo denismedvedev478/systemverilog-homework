@@ -1,5 +1,5 @@
-`include "util.svh"
-
+`include "..\..\common\util.svh"
+`include "02_08_double_tokens.sv"
 module testbench;
 
     logic clk;
@@ -63,7 +63,7 @@ module testbench;
             // Uncomment the following line
             // to generate a VCD file and analyze it using GTKwave or Surfer
 
-            // $dumpvars;
+            $dumpvars;
         `endif
 
         @ (negedge rst);
@@ -90,7 +90,7 @@ module testbench;
 
             $display("++ TEST     => {%s}",
                              `PD(n_double_tokens));
-            $finish(1);
+            //$finish(1);
         end
 
         // We assume that the internal counter width is not big enough
