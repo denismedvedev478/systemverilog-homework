@@ -1,0 +1,1 @@
+qrun -simulate my_tb.sv -c -do "vcd file dump.vcd; vcd add -r /*; run -all; quit"
