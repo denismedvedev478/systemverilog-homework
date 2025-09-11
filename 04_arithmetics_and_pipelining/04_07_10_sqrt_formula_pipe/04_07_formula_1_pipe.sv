@@ -18,22 +18,26 @@ module formula_1_pipe
     wire isqrt_a_vld, isqrt_b_vld, isqrt_c_vld;
     wire [15:0] isqrt_a_res, isqrt_b_res, isqrt_c_res;
     
+    reg arg_vld_def;
     reg [31:0] a_def, b_def, c_def;
+
 
     always_ff @( posedge clk ) begin : inputs_deferred
         if (rst) begin
             a_def <= 0;
             b_def <= 0;
             c_def <= 0;    
+            arg_vld_def <= 0;
         end
         a_def <= a;
         b_def <= b;
         c_def <= c;
+        arg_vld_def <= arg_vld;
     end
 
-    isqrt isqrt_a (.*, .x_vld(arg_vld), .x(a_def), .y_vld(isqrt_a_vld), .y(isqrt_a_res));
-    isqrt isqrt_b (.*, .x_vld(arg_vld), .x(b_def), .y_vld(isqrt_b_vld), .y(isqrt_b_res));
-    isqrt isqrt_c (.*, .x_vld(arg_vld), .x(c_def), .y_vld(isqrt_c_vld), .y(isqrt_c_res));
+    isqrt isqrt_a (.*, .x_vld(arg_vld_def), .x(a_def), .y_vld(isqrt_a_vld), .y(isqrt_a_res));
+    isqrt isqrt_b (.*, .x_vld(arg_vld_def), .x(b_def), .y_vld(isqrt_b_vld), .y(isqrt_b_res));
+    isqrt isqrt_c (.*, .x_vld(arg_vld_def), .x(c_def), .y_vld(isqrt_c_vld), .y(isqrt_c_res));
 
     always_comb begin
         res = 0;

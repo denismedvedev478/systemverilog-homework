@@ -1,32 +1,19 @@
 QuestaSim-64 qrun 2021.1 Utility 2021.01 Jan 19 2021
-Start time: 16:54:53 on Sep 09,2025
+Start time: 17:04:26 on Sep 09,2025
 qrun -simulate my_tb.sv -c -do "vcd file dump.vcd; vcd add -r /*; run -all; quit" 
-# vsim -c -lib qrun.out/work -do "vcd file dump.vcd; vcd add -r /*; run -all; quit" -statslog qrun.out/stats_log qrun_opt_2 -appendlog -l qrun.log 
-# Start time: 16:55:02 on Sep 09,2025
-# //  Questa Sim-64
-# //  Version 2021.1 win64 Jan 19 2021
-# //
-# //  Copyright 1991-2021 Mentor Graphics Corporation
-# //  All Rights Reserved.
-# //
-# //  QuestaSim and its associated documentation contain trade
-# //  secrets and commercial or financial information that are the property of
-# //  Mentor Graphics Corporation and are privileged, confidential,
-# //  and exempt from disclosure under the Freedom of Information Act,
-# //  5 U.S.C. Section 552. Furthermore, this information
-# //  is prohibited from disclosure under the Trade Secrets Act,
-# //  18 U.S.C. Section 1905.
-# //
-# Loading sv_std.std
-# Loading work.isqrt_test(fast)
-# vcd file dump.vcd
-#  vcd add -r /*
-#  run -all
-# ** Note: $finish    : my_tb.sv(20)
-#    Time: 100 ns  Iteration: 0  Instance: /isqrt_test
-# End time: 16:55:07 on Sep 09,2025, Elapsed time: 0:00:05
-# Errors: 0, Warnings: 0
+# vsim -c -lib qrun.out/work -do "vcd file dump.vcd; vcd add -r /*; run -all; quit" -statslog qrun.out/stats_log qrun_opt -appendlog -l qrun.log 
+# Start time: 17:04:34 on Sep 09,2025
+# ** Note: (vsim-3812) Design is being optimized...
+# ** Error: (vopt-13130) Failed to find design unit qrun_opt.
+#         Searched libraries:
+#             work
+#             qrun.out/work
+# Optimization failed
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=1, Warnings=0.
+# Error loading design
+# End time: 17:04:34 on Sep 09,2025, Elapsed time: 0:00:00
+# Errors: 1, Warnings: 0
 # *** Summary *********************************************
 #     qrun: Errors:   0, Warnings:   0
-#     vsim: Errors:   0, Warnings:   0
-#   Totals: Errors:   0, Warnings:   0
+#     vsim: Errors:   1, Warnings:   0
+#   Totals: Errors:   1, Warnings:   0

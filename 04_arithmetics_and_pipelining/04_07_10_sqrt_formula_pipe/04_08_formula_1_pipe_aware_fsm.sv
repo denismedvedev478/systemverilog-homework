@@ -1,7 +1,7 @@
 //----------------------------------------------------------------------------
 // Task
 //----------------------------------------------------------------------------
-
+typedef enum reg[3:0] {IDLE, LOADED_A, LOADED_B, LOADED_C, AWAITING_RES} FSM_TYPE;
 module formula_1_pipe_aware_fsm
 (
     input               clk,
@@ -12,18 +12,60 @@ module formula_1_pipe_aware_fsm
     input        [31:0] b,
     input        [31:0] c,
 
-    output logic        res_vld,
-    output logic [31:0] res,
+    output reg        res_vld,
+    output reg [31:0] res,
 
     // isqrt interface
-
-    output logic        isqrt_x_vld,
-    output logic [31:0] isqrt_x,
+    output reg        isqrt_x_vld,
+    output reg [31:0] isqrt_x,
 
     input               isqrt_y_vld,
     input        [15:0] isqrt_y
 );
+    // Если поступают данные на вход, надо загрузить их подряд и начать ждать 
+    // res от isqrt
+/*
+    reg [31:0] b_def, c_def; // deferred writing in FIFO
 
+    always_ff @( posedge clk or posedge arg_vld) begin : Defer_b_c    
+        if (arg_vld) begin
+            b_def <= b;
+            c_def <= c;
+        end
+    end
+
+    FSM_TYPE state, new_state;
+    
+    always_ff @(posedge clk or posedge rst) begin : FSM_SaveNewState
+        if (rst) state <= IDLE;
+        else state <= new_state;
+    end
+
+    always_comb begin : FSM_TransitionLogic
+        case (state)
+            IDLE: new_state = arg_vld ? LOADED_A : IDLE; 
+            LOADED_A: new_state = LOADED_B;
+            LOADED_B: new_state = AWAITING_RES;
+            AWAITING_RES: new_state = isqrt_y_vld ? IDLE : AWAITING_RES;
+            default: new_state = IDLE;
+        endcase
+    end
+
+    always_ff @(posedge clk) begin : FSM_OutputLogic
+        if (state == IDLE && arg_vld) begin
+            isqrt_x_vld <= 1;
+            isqrt_x <= a;
+        end
+        if (state == LOADED_A) begin
+            isqrt_x <= b_def;
+        end
+        if (state == LOADED_B) begin
+            isqrt_x <= b_def;
+        end
+        if (state == AWAITING_RES) begin
+            
+        end
+    end
     // Task:
     //
     // Implement a module formula_1_pipe_aware_fsm
@@ -61,5 +103,5 @@ module formula_1_pipe_aware_fsm
     // FPGA-Systems Magazine :: FSM :: Issue ALFA (state_0)
     // You can download this issue from https://fpga-systems.ru/fsm#state_0
 
-
+*/
 endmodule

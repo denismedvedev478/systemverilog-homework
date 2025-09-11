@@ -1,0 +1,9 @@
+- Entry: 1
+  Time: Tue Sep  9 17:03:20 2025
+  Command: qrun.exe -simulate my_tb.sv -c -do "vcd file dump.vcd; vcd add -r /*; run -all; quit" 
+- Entry: 2
+  Time: Tue Sep  9 17:04:17 2025
+  Command: qrun.exe -compile my_tb.sv 
+- Entry: 3
+  Time: Tue Sep  9 17:04:26 2025
+  Command: qrun.exe -simulate my_tb.sv -c -do "vcd file dump.vcd; vcd add -r /*; run -all; quit" 

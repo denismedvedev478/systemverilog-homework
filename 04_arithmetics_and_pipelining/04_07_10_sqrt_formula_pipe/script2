@@ -1,0 +1,2 @@
+vlog -O4 my_tb.sv
+vsim.exe isqrt_test -c -do "vcd file dump.vcd; vcd add -r /*; run -all; quit"

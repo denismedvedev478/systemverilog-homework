@@ -1,0 +1,35 @@
+m255
+K4
+z2
+!s11f vlog 2021.1 2021.01, Jan 19 2021
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dD:/iverilog/my-verilog-projects/systemverilog-homework/04_arithmetics_and_pipelining/04_07_10_sqrt_formula_pipe
+visqrt_test
+DXx6 sv_std 3 std 0 22 9oUSJO;AeEaW`l:M@^WG92
+!s110 1757426657
+!i10b 1
+!s100 63@gL0[6Unc8mPj9n?[Oi0
+IBB1NB1_;7moNS[RT2_Gzn3
+S1
+R0
+w1757426416
+8my_tb.sv
+Fmy_tb.sv
+!i122 0
+L0 1 35
+VDg1SIo80bB@j0V0VzS_@n1
+OL;L;2021.1;73
+r1
+!s85 0
+31
+!s108 1757426657.000000
+!s107 my_tb.sv|
+!s90 my_tb.sv|-work|qrun.out/work|-csession=incr|-writesessionid|+qrun.out/top_dus|-statslog|qrun.out/stats_log|
+!i113 0
+o-work qrun.out/work -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+tCvgOpt 0
