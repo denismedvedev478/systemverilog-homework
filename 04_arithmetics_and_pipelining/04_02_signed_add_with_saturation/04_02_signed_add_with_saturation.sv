@@ -19,27 +19,28 @@ endmodule
 module signed_add_with_saturation
 (
   input  [3:0] a, b,
-  output reg [3:0] sum
+  output reg signed [3:0] sum,
+  output reg signed [4:0] raw_sum
+  //output reg debug_overflow,
+  //output reg debug_branch_taken
 );
-  wire overflow;
-  wire signed [3:0] sum_temp;
-  assign sum_temp = a + b;
-  assign sum = sum_temp;
+  assign ext_a = a[4];
+  assign ext_b = b[4];
+  assign ext_raw_sum = raw_sum[4];
 
   always_comb begin
-    if (overflow) begin
-      if (sum[3])
-        sum = 4'b0111;
-      else 
-        sum = 4'b1111;
+    raw_sum = $signed(a) + $signed(b);
+    sum = raw_sum;
+    
+    if (raw_sum > 5'b00111 && ~ext_raw_sum) begin
+      sum = 4'b0111; // $signed(7)
     end
-    else begin
-      sum = sum_temp;
+    if (raw_sum < $signed(-8) && ext_raw_sum) begin
+      sum = $signed(-8);
     end
+    
   end
 
-  // overflow: if sign of a == sign of b and sign of sum != sign of a
-  assign overflow = (~(a[3] ^ b[3])) & (a[3] ^ sum[3]);
 endmodule
   // Task:
   //

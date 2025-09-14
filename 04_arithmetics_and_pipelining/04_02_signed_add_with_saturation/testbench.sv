@@ -2,9 +2,12 @@
 module testbench;
 
   logic signed [3:0] a, b, sum;
+  logic signed [4:0] raw_sum;
+  wire debug_overflow;
+  wire debug_branch_taken;  
 
   signed_add_with_saturation inst
-    (.a (a), .b (b), .sum (sum));
+    (.a (a), .b (b), .sum (sum), .raw_sum(raw_sum));//, .debug_overflow(debug_overflow), .debug_branch_taken(debug_branch_taken));
 
   task test
     (
@@ -15,7 +18,7 @@ module testbench;
 
     # 1;
 
-    $display ("TEST %d + %d = %d", a, b, sum);
+    $display ("TEST %d + %d = %d  (%0d, %0b)", a, b, sum, raw_sum, raw_sum);
 
     if (sum !== t_sum)
       begin
@@ -27,6 +30,7 @@ module testbench;
 
   initial
     begin
+      $dumpvars();
       test (  0,  0,  0);
 
       test (  1,  2,  3);

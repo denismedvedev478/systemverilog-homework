@@ -38,25 +38,25 @@ module float_discriminant (
     assign const4 = 64'h4010_0000_0000_0000;
 
     // pow(b, 2)
-    f_mult ( .clk(clk), .rst(rst),
+    f_mult f1 ( .clk(clk), .rst(rst),
     .a(a_1), .b(b_1), .up_valid(up_valid_1),
-    .res(w_res_1), .down_valid(w_down_valid_1), .busy(w_busy_1), .err(w_err_1));
+    .res(w_res_1), .down_valid(w_down_valid_1), .busy(w_busy_1), .error(w_err_1));
 
     // 4*a
-    f_mult ( .clk(clk), .rst(rst),
+    f_mult f2 ( .clk(clk), .rst(rst),
     .a(const4), .b(b_2), .up_valid(up_valid_2),
-    .res(w_res_2), .down_valid(w_down_valid_2), .busy(w_busy_2), .err(w_err_2));
+    .res(w_res_2), .down_valid(w_down_valid_2), .busy(w_busy_2), .error(w_err_2));
 
 
     // (4a)*c
-    f_mult ( .clk(clk), .rst(rst),
+    f_mult f3 ( .clk(clk), .rst(rst),
     .a(w_res_2), .b(c_def), .up_valid(w_down_valid_2),
-    .res(w_res_3), .down_valid(w_down_valid_3), .busy(w_busy_3), .err(w_err_3));
+    .res(w_res_3), .down_valid(w_down_valid_3), .busy(w_busy_3), .error(w_err_3));
 
     // D = (b^2)-(4ac)
-    f_sub ( .clk(clk), .rst(rst),
+    f_sub f4 ( .clk(clk), .rst(rst),
     .a(b_sqr), .b(w_res_3), .up_valid(w_down_valid_3),
-    .res(w_res_4), .down_valid(w_down_valid_4), .busy(w_busy_4), .err(w_err_4));
+    .res(w_res_4), .down_valid(w_down_valid_4), .busy(w_busy_4), .error(w_err_4));
 
     // Task:
     // Implement a module that accepts three Floating-Point numbers and outputs their discriminant.

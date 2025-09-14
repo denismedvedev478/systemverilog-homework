@@ -1,0 +1,12 @@
+# vsim tb -c -do "vcd file dump.vcd; vcd add -r /*; run -all; quit" 
+# Start time: 00:49:39 on Sep 14,2025
+# ** Note: (vsim-3812) Design is being optimized...
+# ** Error: 04_13_put_in_order.sv(31): Module 'flip_flop_fifo_with_counter_and_debug_1' is not defined.
+# ** Error: 04_13_put_in_order.sv(31): Module 'flip_flop_fifo_with_counter_and_debug_1' is not defined.
+# ** Error: 04_13_put_in_order.sv(31): Module 'flip_flop_fifo_with_counter_and_debug_1' is not defined.
+# ** Error: 04_13_put_in_order.sv(31): Module 'flip_flop_fifo_with_counter_and_debug_1' is not defined.
+# Optimization failed
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=4, Warnings=0.
+# Error loading design
+# End time: 00:49:40 on Sep 14,2025, Elapsed time: 0:00:01
+# Errors: 4, Warnings: 0
