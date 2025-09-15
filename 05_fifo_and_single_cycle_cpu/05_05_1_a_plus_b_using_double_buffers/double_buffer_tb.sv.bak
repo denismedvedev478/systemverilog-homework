@@ -1,0 +1,57 @@
+`include "double_buffer_from_dally_harting.sv"
+
+module tb;
+localparam width = 4;
+    reg clk, rst;
+
+    initial begin
+        clk = '1;
+        rst = 0;
+        fork
+            begin
+                rst = 1;
+                #12 rst = 0;
+            end
+            forever #5 clk = ~ clk;
+        join_none
+    end
+
+    reg b_valid;
+    wire b_ready;
+    reg [width - 1:0] b_data;
+
+    wire b_down_valid;
+    reg b_down_ready;
+    wire [width - 1:0] b_down_data;
+
+    double_buffer_from_dally_harting
+    # (.width (width))
+    buffer_b
+    (
+        .clk         ( clk          ),
+        .rst         ( rst          ),
+
+        .up_valid    ( b_valid      ),
+        .up_ready    ( b_ready      ),
+        .up_data     ( b_data       ),
+
+        .down_valid  ( b_down_valid ),
+        .down_ready  ( b_down_ready ),
+        .down_data   ( b_down_data  )
+    );
+
+    initial begin
+        b_valid = 0;
+        b_data = 'd1337;
+        b_down_ready = 0;
+
+        @(negedge rst);
+        
+        @(posedge clk);
+        b_valid = 0;
+        b_data = 'd1337;
+        b_down_ready = 0;
+
+    end
+
+endmodule

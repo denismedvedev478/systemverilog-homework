@@ -394,5 +394,7 @@ module formula_tb
         $finish;
     end
 
+    initial $dumpvars();
+
 endmodule
 

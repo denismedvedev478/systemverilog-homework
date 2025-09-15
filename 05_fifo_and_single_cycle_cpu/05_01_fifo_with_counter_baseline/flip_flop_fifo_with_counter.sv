@@ -31,7 +31,7 @@ module flip_flop_fifo_with_counter
 
     logic [width - 1:0] data [0: depth - 1];
 
-    //------------------------------------------------------------------------
+    //------------------------------------------------------------  update ptrs
 
     always_ff @ (posedge clk or posedge rst)
         if (rst)
@@ -45,7 +45,7 @@ module flip_flop_fifo_with_counter
         else if (pop)
             rd_ptr <= rd_ptr == max_ptr ? '0 : rd_ptr + 1'b1;
 
-    //------------------------------------------------------------------------
+    //---------------------------------------------------  update rdata, wdata
 
     always_ff @ (posedge clk)
         if (push)
@@ -53,7 +53,7 @@ module flip_flop_fifo_with_counter
 
     assign read_data = data [rd_ptr];
 
-    //------------------------------------------------------------------------
+    //--------------------------------------------- track data count in memory
 
     always_ff @ (posedge clk or posedge rst)
         if (rst)

@@ -22,8 +22,10 @@ module ff_fifo_with_reg_empty_full
 
     //------------------------------------------------------------------------
 
-    logic [pointer_width - 1:0] wr_ptr_d, rd_ptr_d, wr_ptr_q, rd_ptr_q;
-    logic empty_d, full_d;
+    reg [pointer_width - 1:0] wr_ptr_q, rd_ptr_q;
+    logic [pointer_width - 1:0] wr_ptr_d, rd_ptr_d; // comb output
+    
+    logic empty_d, full_d;  // comb
     logic [width - 1:0] data [0: depth - 1];
 
     //------------------------------------------------------------------------
@@ -38,6 +40,10 @@ module ff_fifo_with_reg_empty_full
             wr_ptr_d = wr_ptr_q;
 
         // Task: Add logic for pop to make the FIFO work
+        if (pop)
+            rd_ptr_d = rd_ptr_q == max_ptr ? '0 : rd_ptr_q + 1'b1;
+        else
+            rd_ptr_d = rd_ptr_q;
 
 
         case ({ push, pop })
@@ -50,6 +56,11 @@ module ff_fifo_with_reg_empty_full
         end
 
         // Task: Add { push, pop } == 2'b01 case to make the FIFO work
+        2'b01:
+        begin
+            empty_d = wr_ptr_q == rd_ptr_d; //compare saved wr_ptr_q with new rd_ptr
+            full_d  = 1'b0;
+        end
 
         default:
         begin
